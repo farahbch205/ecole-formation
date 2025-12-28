@@ -1,0 +1,260 @@
+
+/* ألوان رئيسية */
+:root {
+    --primary-color: #1c1b58;   /* أزرق داكن */
+    --secondary-color: #2563eb; /* أزرق فاتح */
+    --accent-color: #f59e0b;    /* برتقالي */
+    --bg-color: #ebe2dd;        /* خلفية */
+    --card-bg: #ffffff;
+    --text-color: #091616;
+    --muted-text: #6b7280;
+}
+
+/* إعدادات عامة */
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: var(--text-color);
+}
+
+/* العناوين */
+h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+h4, h5 {
+    color: var(--primary-color);
+}
+
+/* الكروت (Cards) */
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* أزرار */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 8px 18px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-success {
+    background-color: #16a34a;
+    border: none;
+}
+
+.btn-warning {
+    background-color: var(--accent-color);
+    border: none;
+    color: #fff;
+}
+
+.btn-info {
+    background-color: #0ea5e9;
+    border: none;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #64748b;
+    border: none;
+}
+
+/* الفورم */
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.2);
+}
+
+/* الجداول */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+}
+
+.table tbody tr:hover {
+    background-color: #eef2ff;
+}
+
+/* نصوص صغيرة */
+.card-text {
+    color: var(--muted-text);
+}
+
+/* روابط */
+a {
+    text-decoration: none;
+}
+
+/* Responsive تحسين */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+}/* خلفية الـ Dashboard */
+.dashboard-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a2f7e, #f8fafc);
+}
+
+/* العنوان الكبير */
+.dashboard-title {
+    color: #0d1c47;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.dashboard-subtitle {
+    color: #e0e7ff;
+    font-size: 18px;
+}
+
+/* مربعات Dashboard */
+.dashboard-card {
+    background-color: #b6c5ee;
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    height: 200px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.dashboard-card h3 {
+    color: #0c1a3f;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* Hover effect */
+.dashboard-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    background-color: #f8fafc;
+}
+
+/* إزالة خط الروابط */
+a {
+    text-decoration: none;
+}/* خلفية الصفحات الداخلية */
+.page-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #182a66, #f8fafc);
+}
+
+/* عنوان الصفحة */
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #18105c;
+    margin-bottom: 30px;
+}
+
+/* Sub-title */
+.page-subtitle {
+    text-align: center;
+    color: #52575f;
+    margin-bottom: 40px;
+}
+
+/* كروت المحتوى */
+.content-card {
+    background-color: #b9bdc0;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* زر الرجوع */
+.back-btn {
+    margin-top: 20px;
+}/* ===== LOGIN PAGE ===== */
+
+.login-bg {
+    height: 100vh;
+    background: linear-gradient(135deg, #1a2f7e, #f8fafc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    
+    background: #b9bdc0;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+
+}
+.login-title {
+    text-align: center;
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 5px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: gray;
+    margin-bottom: 30px;
+}
+
+.login-btn {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #2a5298;
+    font-size: 14px;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
