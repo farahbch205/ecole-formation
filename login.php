@@ -40,18 +40,20 @@ if (isset($_POST['login'])) {
     <p class="login-subtitle">Connexion à l’administration</p>
 
     <form method="POST">
+       // حقل البريد الإلكتروني: لإدخال بريد المستخدم 
         <div class="mb-3">
             <label class="form-label">Email</label>
             <input type="email" name="email" class="form-control"
                    placeholder="admin@email.com" required>
         </div>
+      // حقل كلمة المرور: لإدخال كلمة مرور المستخدم
 
         <div class="mb-3">
             <label class="form-label">Mot de passe</label>
             <input type="password" name="password" class="form-control"
                    placeholder="••••••••" required>
         </div>
-
+   //   زر الإرسال: للتحقق من بيانات تسجيل الدخول وإنشاء الجلسة
         <button type="submit" name="login" class="btn btn-primary w-100 login-btn">
             Se connecter
         </button>
@@ -61,3 +63,4 @@ if (isset($_POST['login'])) {
 
 </body>
 </html>
+
