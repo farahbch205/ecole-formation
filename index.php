@@ -1,5 +1,7 @@
 <?php
 session_start();
+// التأكد من أن المستخدم مسجل الدخول
+// إذا لم يكن مسجل، يعاد توجيهه إلى صفحة تسجيل الدخول
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -21,15 +23,16 @@ if (!isset($_SESSION['user_id'])) {
 
     <div class="container py-5">
 
-        <!-- العنوان الكبير -->
+       <!-- العنوان الكبير في الصفحة الرئيسية -->
         <div class="text-center mb-5">
             <h1 class="dashboard-title">École de Formation</h1>
             <p class="dashboard-subtitle">Plateforme de gestion scolaire</p>
         </div>
 
-        <!-- المربعات -->
+      
+        <!-- المربعات الرئيسية (Cards) للوصول إلى كل قسم -->
         <div class="row g-4">
-
+                       <!-- بطاقة إدارة الطلاب -->
             <div class="col-md-6 col-lg-3">
                 <a href="students.php">
                     <div class="dashboard-card">
@@ -39,6 +42,7 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
             </div>
 
+              <!-- بطاقة إدارة الأساتذة -->
             <div class="col-md-6 col-lg-3">
                 <a href="teachers.php">
                     <div class="dashboard-card">
@@ -48,6 +52,7 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
             </div>
 
+                  <!-- بطاقة إدارة الدورات -->
             <div class="col-md-6 col-lg-3">
                 <a href="courses.php">
                     <div class="dashboard-card">
@@ -56,7 +61,7 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </a>
             </div>
-
+                     <!-- بطاقة متابعة الحضور -->
             <div class="col-md-6 col-lg-3">
                 <a href="attendance.php">
                     <div class="dashboard-card">
@@ -70,4 +75,5 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
 </body>
+
 </html>
