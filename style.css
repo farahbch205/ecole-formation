@@ -5,9 +5,9 @@
     --secondary-color: #2563eb; /* أزرق فاتح */
     --accent-color: #f59e0b;    /* برتقالي */
     --bg-color: #ebe2dd;        /* خلفية */
-    --card-bg: #ffffff;
-    --text-color: #091616;
-    --muted-text: #6b7280;
+    --card-bg: #ffffff;/* لون خلفية  */
+    --text-color: #091616;/* لون النص الأساسي */
+    --muted-text: #6b7280;/* لون النص الأساسي */
 }
 
 /* إعدادات عامة */
@@ -27,15 +27,15 @@ h4, h5 {
     color: var(--primary-color);
 }
 
-/* الكروت (Cards) */
+/* Cards */
 .card {
     background-color: var(--card-bg);
     border: none;
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;/* حواف دائرية */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);/* ظل */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+/* تأثير عند المرور بالفأرة */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
@@ -47,7 +47,7 @@ h4, h5 {
     font-weight: 600;
     padding: 8px 18px;
 }
-
+/* زر أساسي */
 .btn-primary {
     background-color: var(--primary-color);
     border: none;
@@ -57,29 +57,29 @@ h4, h5 {
     background-color: var(--secondary-color);
 }
 
+/* زر نجاح */
 .btn-success {
     background-color: #16a34a;
     border: none;
 }
-
+/* زر تحذير */
 .btn-warning {
     background-color: var(--accent-color);
     border: none;
     color: #fff;
 }
-
+/* زر معلومات */
 .btn-info {
     background-color: #0ea5e9;
     border: none;
     color: #fff;
 }
-
+/* زر ثانوي */
 .btn-secondary {
     background-color: #64748b;
     border: none;
 }
-
-/* الفورم */
+/*  الحقول (Forms) */
 .form-control, .form-select {
     border-radius: 10px;
     padding: 10px;
@@ -122,7 +122,7 @@ a {
     text-decoration: none;
 }
 
-/* Responsive تحسين */
+/* Responsive */
 @media (max-width: 768px) {
     h1 {
         font-size: 24px;
@@ -199,7 +199,7 @@ a {
     margin-bottom: 40px;
 }
 
-/* كروت المحتوى */
+/*  المحتوى */
 .content-card {
     background-color: #b9bdc0;
     border-radius: 18px;
@@ -211,8 +211,8 @@ a {
 /* زر الرجوع */
 .back-btn {
     margin-top: 20px;
-}/* ===== LOGIN PAGE ===== */
-
+}
+/*  صفحة تسجيل الدخول */
 .login-bg {
     height: 100vh;
     background: linear-gradient(135deg, #1a2f7e, #f8fafc);
@@ -221,6 +221,7 @@ a {
     align-items: center;
 }
 
+/* صندوق تسجيل الدخول */
 .login-container {
     
     background: #b9bdc0;
@@ -257,4 +258,5 @@ a {
 
 .login-link:hover {
     text-decoration: underline;
+
 }
