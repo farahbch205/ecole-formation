@@ -3,7 +3,7 @@ session_start();
 include "config/db.php";
 if(!isset($_SESSION['user_id'])){ header("Location: login.php"); exit(); }
 
-// إضافة طالب
+//   * AJOUT D'UN ÉTUDIANT
 if(isset($_POST['add_student'])){
     $name=$_POST['full_name'];
     $email=$_POST['email'];
@@ -11,7 +11,7 @@ if(isset($_POST['add_student'])){
     mysqli_query($conn,"INSERT INTO students (full_name,email,formation_id) VALUES ('$name','$email','$formation')");
 }
 
-// تعديل طالب
+//   * MODIFICATION D'UN ÉTUDIANT
 if(isset($_POST['edit_student'])){
     $id=$_POST['student_id'];
     $name=$_POST['full_name'];
@@ -20,7 +20,7 @@ if(isset($_POST['edit_student'])){
     mysqli_query($conn,"UPDATE students SET full_name='$name', email='$email', formation_id='$formation' WHERE id='$id'");
 }
 
-// حذف طالب
+// * SUPPRESSION D'UN ÉTUDIANT
 if(isset($_GET['delete'])){
     $id=$_GET['delete'];
     mysqli_query($conn,"DELETE FROM students WHERE id='$id'");
@@ -28,7 +28,7 @@ if(isset($_GET['delete'])){
     exit();
 }
 
-// جلب الطلاب
+// * RÉCUPÉRATION D'UN ÉTUDIANT
 $result=mysqli_query($conn,"SELECT students.*, formations.title FROM students LEFT JOIN formations ON students.formation_id=formations.id");
 $formations=mysqli_query($conn,"SELECT * FROM formations");
 
@@ -101,3 +101,4 @@ if(isset($_GET['edit'])){
 </div>
 </body>
 </html>
+
