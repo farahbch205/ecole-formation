@@ -2,14 +2,14 @@
 session_start();
 include "config/db.php";
 if(!isset($_SESSION['user_id'])){ header("Location: login.php"); exit(); }
-
+// * AJOUT D'UNE FORMATION
 if(isset($_POST['add_formation'])){
     $title=$_POST['title'];
     $description=$_POST['description'];
     $planning=$_POST['planning'];
     mysqli_query($conn,"INSERT INTO formations (title,description,planning) VALUES ('$title','$description','$planning')");
 }
-
+//* MODIFICATION D'UNE FORMATION
 if(isset($_POST['edit_formation'])){
     $id=$_POST['formation_id'];
     $title=$_POST['title'];
@@ -17,7 +17,7 @@ if(isset($_POST['edit_formation'])){
     $planning=$_POST['planning'];
     mysqli_query($conn,"UPDATE formations SET title='$title',description='$description',planning='$planning' WHERE id='$id'");
 }
-
+//* SUPPRESSION D'UNE FORMATION
 if(isset($_GET['delete'])){
     $id=$_GET['delete'];
     mysqli_query($conn,"DELETE FROM formations WHERE id='$id'");
@@ -25,6 +25,7 @@ if(isset($_GET['delete'])){
 }
 
 $result=mysqli_query($conn,"SELECT * FROM formations");
+ //* RÉCUPÉRATION D'UNE FORMATION POUR MODIFICATION
 $edit_formation=null;
 if(isset($_GET['edit'])){
     $id=$_GET['edit'];
@@ -70,8 +71,8 @@ if(isset($_GET['edit'])){
 <td><?= $row['description'] ?></td>
 <td><?= $row['planning'] ?></td>
 <td>
-<a href="formations.php?edit=<?= $row['id'] ?>" class="btn btn-sm btn-warning">Modifier</a>
-<a href="formations.php?delete=<?= $row['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Voulez-vous vraiment supprimer ?')">Supprimer</a>
+<a href="courses.php?edit=<?= $row['id'] ?>" class="btn btn-sm btn-warning">Modifier</a>
+<a href="courses.php?delete=<?= $row['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Voulez-vous vraiment supprimer ?')">Supprimer</a>
 </td>
 </tr>
 <?php } ?>
@@ -83,4 +84,5 @@ if(isset($_GET['edit'])){
 </div>
 </body>
 </html>
+
 
