@@ -3,12 +3,12 @@ session_start();
 include "config/db.php";
 if(!isset($_SESSION['user_id'])){ header("Location: login.php"); exit(); }
 
-// إضافة/تعديل حضور
+//  * AJOUT OU MISE À JOUR DE LA PRÉSENCE
 if(isset($_POST['mark'])){
     $student_id = $_POST['student_id'];
     $status = $_POST['status'];
 
-    // التأكد إن كان يوجد حضور لنفس اليوم
+     // Vérifier s’il existe déjà une présence pour aujourd’hui
     $check = mysqli_query($conn, "SELECT * FROM attendance WHERE student_id='$student_id' AND date=CURDATE()");
     if(mysqli_num_rows($check) == 0){
         mysqli_query($conn, "INSERT INTO attendance (student_id, date, status) VALUES ('$student_id', CURDATE(), '$status')");
@@ -17,28 +17,28 @@ if(isset($_POST['mark'])){
     }
 }
 
-// تعديل حضور سابق
+//  * MODIFICATION D’UNE PRÉSENCE EXISTANTE
 if(isset($_POST['edit_attendance'])){
     $id = $_POST['attendance_id'];
     $status = $_POST['status'];
     mysqli_query($conn, "UPDATE attendance SET status='$status' WHERE id='$id'");
 }
 
-// حذف حضور
+//  * SUPPRESSION D’UNE PRÉSENCE
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM attendance WHERE id='$id'");
     header("Location: attendance.php"); exit();
 }
 
-// جلب جميع الحضور
+// * RÉCUPÉRATION DE TOUTES LES PRÉSENCES
 $result = mysqli_query($conn, "SELECT a.id, s.full_name, f.title as formation, a.status, a.date 
                                FROM attendance a 
                                JOIN students s ON a.student_id = s.id 
                                LEFT JOIN formations f ON s.formation_id = f.id
                                ORDER BY a.date DESC");
 
-// جلب الطلاب لقائمة الاختيار
+// * RÉCUPÉRATION DES ÉTUDIANTS
 $students = mysqli_query($conn, "SELECT * FROM students");
 ?>
 
@@ -57,7 +57,7 @@ $students = mysqli_query($conn, "SELECT * FROM students");
 <h1 class="page-title">Suivi de Présence</h1>
 <p class="page-subtitle">Gestion de la présence des étudiants</p>
 
-<!-- Formulaire تسجيل الحضور -->
+
 <div class="content-card mb-4">
 <h4>Marquer la présence</h4>
 <form method="POST" class="row g-3 align-items-center">
@@ -81,7 +81,7 @@ $students = mysqli_query($conn, "SELECT * FROM students");
 </form>
 </div>
 
-<!-- جدول الحضور -->
+
 <div class="content-card">
 <table class="table table-bordered table-striped">
 <thead>
@@ -123,3 +123,4 @@ $students = mysqli_query($conn, "SELECT * FROM students");
 </div>
 </body>
 </html>
+
