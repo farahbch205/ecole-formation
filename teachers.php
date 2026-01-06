@@ -3,12 +3,15 @@ session_start();
 include "config/db.php";
 if(!isset($_SESSION['user_id'])){ header("Location: login.php"); exit(); }
 
+//* AJOUT D'UN FORMATEUR 
+
 if(isset($_POST['add_teacher'])){
     $name=$_POST['name'];
     $email=$_POST['email'];
     $formation=$_POST['formation_id'];
     mysqli_query($conn,"INSERT INTO teachers (full_name,email,formation_id) VALUES ('$name','$email','$formation')");
 }
+//* MODIFICATION D'UN FORMATEU
 
 if(isset($_POST['edit_teacher'])){
     $id=$_POST['teacher_id'];
@@ -17,16 +20,18 @@ if(isset($_POST['edit_teacher'])){
     $formation=$_POST['formation_id'];
     mysqli_query($conn,"UPDATE teachers SET full_name='$name', email='$email', formation_id='$formation' WHERE id='$id'");
 }
-
+//* SUPPRESSION D'UN FORMATEUR
 if(isset($_GET['delete'])){
     $id=$_GET['delete'];
     mysqli_query($conn,"DELETE FROM teachers WHERE id='$id'");
     header("Location: teachers.php"); exit();
 }
 
+// Liste des formateurs avec leurs formation
 $result=mysqli_query($conn,"SELECT teachers.*, formations.title FROM teachers LEFT JOIN formations ON teachers.formation_id=formations.id");
 $formations=mysqli_query($conn,"SELECT * FROM formations");
 $edit_teacher=null;
+ //* MODE ÉDITION
 if(isset($_GET['edit'])){
     $id=$_GET['edit'];
     $edit_teacher=mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM teachers WHERE id='$id'"));
@@ -90,3 +95,4 @@ if(isset($_GET['edit'])){
 </div>
 </body>
 </html>
+
